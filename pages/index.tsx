@@ -17,7 +17,7 @@ export default function Home() {
           Dark theme
         </PreloadedFont>
       <div className="flex flex-col h-screen bg-gray-1-dark p-2">
-        <PreloadedFont variant='h1' className="text-title1 text-white-1">
+        <PreloadedFont variant='h1' className="text-title1 text-main-1-dark">
           Typography
         </PreloadedFont>
         <PreloadedFont variant='h1' className="text-title1 text-white-1">
