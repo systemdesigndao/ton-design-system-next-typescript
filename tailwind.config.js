@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
-import tdsTheme from '@designervoid/ton-design-system/tdsTheme'
+const tdsTheme = require('@designervoid/ton-design-system/tdsTheme')
 
 module.exports = {
   content: [
