@@ -22,8 +22,9 @@ export default function Home() {
           <button
             className="p-4 m-2 rounded-full bg-main-light-4"
             onClick={() => {
+              // tg://resolve?domain=tondesigndao_bot&start=twitter-code_${perhapsTwitterCode}
               window.open(
-                `https://t.me/tondesigndao_bot/start=twitter-code_${perhapsTwitterCode}`,
+                `https://t.me/tondesigndao_bot?start=twitter-code_${perhapsTwitterCode}`,
                 '_blank'
               )
             }}
