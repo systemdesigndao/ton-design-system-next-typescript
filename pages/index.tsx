@@ -2,10 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import { PreloadedFont } from '../components/PreloadedFont'
+import { useRouter } from 'next/router'
 
 export default function Home() {
-  const urlParams = new URLSearchParams(window.location.search)
-  const perhapsTwitterCode = urlParams.get('code')
+  const {
+    query: { code: perhapsTwitterCode },
+  } = useRouter()
 
   return (
     <div>
