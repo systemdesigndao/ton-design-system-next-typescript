@@ -4,6 +4,9 @@ import Image from 'next/image'
 import { PreloadedFont } from '../components/PreloadedFont'
 
 export default function Home() {
+  const urlParams = new URLSearchParams(window.location.search)
+  const perhapsTwitterCode = urlParams.get('code')
+
   return (
     <div>
       <Head>
@@ -13,6 +16,21 @@ export default function Home() {
       </Head>
 
       <main>
+        {perhapsTwitterCode && (
+          <button
+            className="p-4 m-2 rounded-full bg-main-light-4"
+            onClick={() => {
+              window.open(
+                `https://t.me/tondesigndao_bot/start=twitter-code_${perhapsTwitterCode}`,
+                '_blank'
+              )
+            }}
+          >
+            <PreloadedFont variant="h1" className="text-title1 text-white-1">
+              Connect Twitter (Requires pre-setup Twitter API)
+            </PreloadedFont>
+          </button>
+        )}
         <PreloadedFont
           variant="h1"
           className="text-title1 text-white-1 p-2 text-center bg-main-dark-5"
