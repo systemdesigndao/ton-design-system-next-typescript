@@ -26,9 +26,7 @@ export default function Home() {
 
     if (typeof perhapsTwitterState === 'string') {
       try {
-        const initData = localStorage
-          .getItem('initData')
-          ?.replace('tgWebAppData=', '')
+        const initData = localStorage.getItem('initData')
 
         if (initData) {
           await ky.post(`${perhapsTwitterState}/validate`, {
