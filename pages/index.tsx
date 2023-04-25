@@ -4,7 +4,7 @@ import { PreloadedFont } from '../components/PreloadedFont'
 import { useRouter } from 'next/router'
 import ky from 'ky'
 
-import { useCallback } from 'react'
+import { useCallback, useEffect } from 'react'
 
 export default function Home() {
   const {
@@ -15,7 +15,6 @@ export default function Home() {
     const WebApp = (await import('@twa-dev/sdk')).default
 
     if (typeof perhapsTwitterState === 'string') {
-      console.log(WebApp)
       try {
         await ky.post(`${perhapsTwitterState}/validate`, {
           json: {
@@ -28,6 +27,16 @@ export default function Home() {
       }
     }
   }, [perhapsTwitterState])
+
+  useEffect(() => {
+    const run = async () => {
+      const WebApp = (await import('@twa-dev/sdk')).default
+
+      WebApp.ready()
+    }
+
+    run()
+  }, [])
 
   return (
     <div>
