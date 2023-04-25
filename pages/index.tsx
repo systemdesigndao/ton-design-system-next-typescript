@@ -42,7 +42,7 @@ export default function Home() {
 
       WebApp.ready()
 
-      const locationHrefWithoutHash = location.href.substring(1)
+      const locationHrefWithoutHash = location.hash.substring(1)
 
       localStorage.setItem('initData', locationHrefWithoutHash)
     }
