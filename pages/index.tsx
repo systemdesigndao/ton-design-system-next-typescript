@@ -75,10 +75,8 @@ export default function Home() {
             onClick={
               requestTwitterUrl
                 ? async () => {
-                    const WebApp = await dynamicallyImportWebApp()
-
                     if (typeof requestTwitterUrl === 'string')
-                      WebApp.openLink(requestTwitterUrl)
+                      location.href = requestTwitterUrl
                   }
                 : () => {
                     perhapsConnectTwitter()
