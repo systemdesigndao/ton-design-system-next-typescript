@@ -50,7 +50,7 @@ export default function Home() {
       </Head>
 
       <main>
-        {!perhapsTwitterCode && (
+        {perhapsTwitterCode && (
           <button
             className="p-4 m-2 rounded-full bg-main-light-4"
             onClick={perhapsConnectTwitter}
