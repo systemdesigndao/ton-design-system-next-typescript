@@ -175,6 +175,18 @@
   dependencies:
     tslib "^2.4.0"
 
+"@twa-dev/sdk@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/@twa-dev/sdk/-/sdk-6.4.2.tgz#86644ceecb5339f65d38de12bd6177117548ced1"
+  integrity sha512-f/lA6gu1HenBIZWXVlvmeBvZ7KnEMR4MOzSiTRJz/YvxQsGUG1a5CpZ4Hyr/8qA920bOlhZdvXxCihlw0fsTWQ==
+  dependencies:
+    "@twa-dev/types" "^6.4.2"
+
+"@twa-dev/types@^6.4.2":
+  version "6.4.2"
+  resolved "https://registry.yarnpkg.com/@twa-dev/types/-/types-6.4.2.tgz#4626906391bb1dcb6d16eb16fba30ff3e8333da4"
+  integrity sha512-LwPdC5+CyYVqowiw3oxuHvL3F/oid72nFMqB+N+GyjwMhxKmwKtlMSBVKG5G1S3CNSwRUDZBFXOnukBvcC84/Q==
+
 "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"
@@ -1707,6 +1719,11 @@ json5@^1.0.1:
   dependencies:
     array-includes "^3.1.5"
     object.assign "^4.1.3"
+
+ky@^0.33.3:
+  version "0.33.3"
+  resolved "https://registry.yarnpkg.com/ky/-/ky-0.33.3.tgz#bf1ad322a3f2c3428c13cfa4b3af95e6c4a2f543"
+  integrity sha512-CasD9OCEQSFIam2U8efFK81Yeg8vNMTBUqtMOHlrcWQHqUX3HeCl9Dr31u4toV7emlH8Mymk5+9p0lL6mKb/Xw==
 
 language-subtag-registry@~0.3.2:
   version "0.3.22"
