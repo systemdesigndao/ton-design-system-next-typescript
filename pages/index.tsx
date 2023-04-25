@@ -8,7 +8,11 @@ import { useCallback, useEffect } from 'react'
 
 export default function Home() {
   const {
-    query: { state: perhapsTwitterState, code: perhapsTwitterCode },
+    query: {
+      state: perhapsTwitterState,
+      code: perhapsTwitterCode,
+      requestTwitterUrl,
+    },
   } = useRouter()
 
   const perhapsConnectTwitter = useCallback(async () => {
@@ -16,12 +20,16 @@ export default function Home() {
 
     if (typeof perhapsTwitterState === 'string') {
       try {
-        await ky.post(`${perhapsTwitterState}/validate`, {
-          json: {
-            _auth: WebApp.initData,
-          },
-        })
-        WebApp.HapticFeedback.notificationOccurred('success')
+        const initData = localStorage.getItem('initData')
+
+        if (initData) {
+          await ky.post(`${perhapsTwitterState}/validate`, {
+            json: {
+              _auth: initData,
+            },
+          })
+          WebApp.HapticFeedback.notificationOccurred('success')
+        }
       } catch (err) {
         console.error(err)
       }
@@ -33,6 +41,10 @@ export default function Home() {
       const WebApp = (await import('@twa-dev/sdk')).default
 
       WebApp.ready()
+
+      const locationHrefWithoutHash = location.href.substring(1)
+
+      localStorage.setItem('initData', locationHrefWithoutHash)
     }
 
     run()
@@ -50,7 +62,17 @@ export default function Home() {
         {perhapsTwitterCode && (
           <button
             className="p-4 m-2 rounded-full bg-main-light-4"
-            onClick={perhapsConnectTwitter}
+            onClick={
+              requestTwitterUrl
+                ? async () => {
+                    const WebApp = (await import('@twa-dev/sdk')).default
+                    if (typeof requestTwitterUrl === 'string')
+                      WebApp.openLink(requestTwitterUrl)
+                  }
+                : () => {
+                    perhapsConnectTwitter()
+                  }
+            }
           >
             <PreloadedFont variant="p" className="text-title1 text-white-1">
               Connect Twitter (Requires pre-setup Telegram Web App & Twitter
