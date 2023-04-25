@@ -1,23 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
-
 import { PreloadedFont } from '../components/PreloadedFont'
 import { useRouter } from 'next/router'
 import ky from 'ky'
-import { Telegram } from '@twa-dev/types'
+
 import { useCallback } from 'react'
-
-declare global {
-  interface Window {
-    Telegram: Telegram
-  }
-}
-
-const isTelegramWebApp = (cb: () => Promise<void>) => {
-  if (window.Telegram) {
-    cb()
-  }
-}
 
 export default function Home() {
   const {
@@ -25,20 +12,21 @@ export default function Home() {
   } = useRouter()
 
   const perhapsConnectTwitter = useCallback(async () => {
-    isTelegramWebApp(async () => {
-      if (typeof perhapsTwitterState === 'string') {
-        try {
-          await ky.post(`${perhapsTwitterState}/validate`, {
-            json: {
-              _auth: window.Telegram.WebApp.initData,
-            },
-          })
-          window.Telegram.WebApp.HapticFeedback.notificationOccurred('success')
-        } catch (err) {
-          console.error(err)
-        }
+    const WebApp = (await import('@twa-dev/sdk')).default
+
+    if (typeof perhapsTwitterState === 'string') {
+      console.log(WebApp)
+      try {
+        await ky.post(`${perhapsTwitterState}/validate`, {
+          json: {
+            _auth: WebApp.initData,
+          },
+        })
+        WebApp.HapticFeedback.notificationOccurred('success')
+      } catch (err) {
+        console.error(err)
       }
-    })
+    }
   }, [perhapsTwitterState])
 
   return (
@@ -50,7 +38,7 @@ export default function Home() {
       </Head>
 
       <main>
-        {perhapsTwitterCode && (
+        {!perhapsTwitterCode && (
           <button
             className="p-4 m-2 rounded-full bg-main-light-4"
             onClick={perhapsConnectTwitter}

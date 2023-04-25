@@ -24,7 +24,6 @@
     "typescript": "4.9.3"
   },
   "devDependencies": {
-    "@twa-dev/types": "^6.4.2",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "autoprefixer": "^10.4.13",
     "eslint-config-prettier": "^8.6.0",
