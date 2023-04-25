@@ -51,7 +51,7 @@ export default function Home() {
       const locationHrefWithoutHash = location.hash.substring(1)
 
       if (locationHrefWithoutHash.length !== 0) {
-        localStorage.setItem('initData', locationHrefWithoutHash)
+        localStorage.setItem('initData', WebApp.initData)
       }
     }
 
