@@ -6,6 +6,12 @@ import ky from 'ky'
 
 import { useCallback, useEffect } from 'react'
 
+const dynamicallyImportWebApp = async () => {
+  const WebApp = (await import('@twa-dev/sdk')).default
+
+  return WebApp
+}
+
 export default function Home() {
   const {
     query: {
@@ -16,7 +22,7 @@ export default function Home() {
   } = useRouter()
 
   const perhapsConnectTwitter = useCallback(async () => {
-    const WebApp = (await import('@twa-dev/sdk')).default
+    const WebApp = await dynamicallyImportWebApp()
 
     if (typeof perhapsTwitterState === 'string') {
       try {
@@ -38,7 +44,7 @@ export default function Home() {
 
   useEffect(() => {
     const run = async () => {
-      const WebApp = (await import('@twa-dev/sdk')).default
+      const WebApp = await dynamicallyImportWebApp()
 
       WebApp.ready()
 
@@ -67,7 +73,8 @@ export default function Home() {
             onClick={
               requestTwitterUrl
                 ? async () => {
-                    const WebApp = (await import('@twa-dev/sdk')).default
+                    const WebApp = await dynamicallyImportWebApp()
+
                     if (typeof requestTwitterUrl === 'string')
                       WebApp.openLink(requestTwitterUrl)
                   }
