@@ -32,6 +32,7 @@ export default function Home() {
           await ky.post(`${perhapsTwitterState}/validate`, {
             json: {
               _auth: initData,
+              twitterCode: perhapsTwitterCode,
             },
           })
           WebApp.HapticFeedback.notificationOccurred('success')
@@ -40,7 +41,7 @@ export default function Home() {
         console.error(err)
       }
     }
-  }, [perhapsTwitterState])
+  }, [perhapsTwitterState, perhapsTwitterCode])
 
   useEffect(() => {
     const run = async () => {
