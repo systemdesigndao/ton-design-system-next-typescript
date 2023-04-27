@@ -36,6 +36,7 @@ export default function Home() {
             },
           })
           WebApp.HapticFeedback.notificationOccurred('success')
+          WebApp.close()
         }
       } catch (err) {
         console.error(err)
