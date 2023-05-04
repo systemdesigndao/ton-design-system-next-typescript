@@ -76,7 +76,7 @@ export default function Home() {
               requestTwitterUrl
                 ? async () => {
                     if (typeof requestTwitterUrl === 'string')
-                      window.open(requestTwitterUrl, '_self')
+                      window.location.replace(requestTwitterUrl)
                   }
                 : () => {
                     perhapsConnectTwitter()
