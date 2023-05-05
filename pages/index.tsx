@@ -179,6 +179,12 @@ export default function Home() {
           </PreloadedFont>
           <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
             <LottiePlayer
+              path="/stickers/money.json"
+              style={{ width: 30, height: 30 }}
+            />
+          </div>
+          <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
+            <LottiePlayer
               path="/stickers/boomstick.json"
               style={{ width: 30, height: 30 }}
             />
@@ -250,6 +256,12 @@ export default function Home() {
           <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
             Lottie (lottie-player + json)
           </PreloadedFont>
+          <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit">
+            <LottiePlayer
+              path="/stickers/money.json"
+              style={{ width: 30, height: 30 }}
+            />
+          </div>
           <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit">
             <LottiePlayer
               path="/stickers/boomstick.json"
