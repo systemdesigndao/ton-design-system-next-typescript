@@ -64,7 +64,7 @@ export default function Home() {
         currentState += `,${WebApp.initData}`
         updatedUrl.searchParams.set('state', currentState!)
         currentUrl.searchParams.set('requestTwitterUrl', updatedUrl.href)
-        window.location.href = currentUrl.href
+        window.history.pushState({}, '', currentUrl.href)
       }
     }
 
