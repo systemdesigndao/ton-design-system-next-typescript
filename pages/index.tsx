@@ -183,7 +183,7 @@ export default function Home() {
               style={{ width: 30, height: 30 }}
             />
           </div>
-          <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
+          <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit mt-1">
             <LottiePlayer
               path="/stickers/boomstick.json"
               style={{ width: 30, height: 30 }}
@@ -262,7 +262,7 @@ export default function Home() {
               style={{ width: 30, height: 30 }}
             />
           </div>
-          <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit">
+          <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit mt-1">
             <LottiePlayer
               path="/stickers/boomstick.json"
               style={{ width: 30, height: 30 }}
