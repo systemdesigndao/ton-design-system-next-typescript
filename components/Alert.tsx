@@ -1,6 +1,5 @@
-'use client'
-import { motion, useSpring } from 'framer-motion'
 import { forwardRef, useCallback, useImperativeHandle } from 'react'
+import { useSpring, animated } from 'react-spring'
 
 export interface AlertHandle {
   showAndHide(): void
@@ -10,22 +9,22 @@ export const Alert = forwardRef<
   AlertHandle,
   { title: string; defaultValue: number; hideAfter?: number }
 >(({ title, defaultValue, hideAfter }, ref) => {
-  const top = useSpring(defaultValue)
+  const [springProps, setSpring] = useSpring(() => ({
+    top: defaultValue,
+    config: { tension: 170, friction: 26 },
+  }))
 
-  const scrollToTop = useCallback(
-    (value: number) => {
-      top.set(value)
-    },
-    [top]
-  )
+  const scrollToTop = useCallback(() => {
+    setSpring({ top: 0 })
+  }, [setSpring])
 
   const scrollToDefault = useCallback(() => {
-    top.set(defaultValue)
-  }, [defaultValue, top])
+    setSpring({ top: defaultValue })
+  }, [defaultValue, setSpring])
 
   useImperativeHandle(ref, () => ({
     showAndHide() {
-      scrollToTop(0)
+      scrollToTop()
       setTimeout(() => {
         scrollToDefault()
       }, (hideAfter ?? 3) * 1e3)
@@ -33,12 +32,16 @@ export const Alert = forwardRef<
   }))
 
   return (
-    <motion.div
-      style={{ top, right: 0 }}
-      className="p-4 mb-4 text-sm rounded-lg bg-black-1 absolute flex justify-center items-center"
+    <animated.div
+      style={{
+        ...springProps,
+        right: 0,
+        position: 'absolute',
+      }}
+      className="p-4 mb-4 text-sm rounded-lg bg-black-1 flex justify-center items-center"
     >
       <span className="ml-1">{title}</span>
-    </motion.div>
+    </animated.div>
   )
 })
 
