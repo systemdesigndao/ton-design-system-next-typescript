@@ -7,6 +7,7 @@ import ky from 'ky'
 import { useCallback, useEffect, useRef } from 'react'
 import { openInNewTab } from '../helpers/openInNewTab'
 import { Alert, AlertHandle } from '../components/Alert'
+import { LottiePlayer } from '../components/LottiePlayer'
 
 const dynamicallyImportWebApp = async () => {
   const WebApp = (await import('@twa-dev/sdk')).default
@@ -173,6 +174,15 @@ export default function Home() {
               height={56}
             />
           </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+            Lottie (lottie-player + json)
+          </PreloadedFont>
+          <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
+            <LottiePlayer
+              path="/stickers/boomstick.json"
+              style={{ width: 30, height: 30 }}
+            />
+          </div>
         </div>
         <PreloadedFont
           variant="h1"
@@ -235,6 +245,15 @@ export default function Home() {
               src="/icons/ton-logo-light.svg"
               width={148}
               height={56}
+            />
+          </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+            Lottie (lottie-player + json)
+          </PreloadedFont>
+          <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit">
+            <LottiePlayer
+              path="/stickers/boomstick.json"
+              style={{ width: 30, height: 30 }}
             />
           </div>
         </div>
