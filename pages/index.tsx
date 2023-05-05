@@ -82,10 +82,15 @@ export default function Home() {
 
       <Alert
         ref={refAlert}
-        title="🔥 You can use bot now"
+        title="You can use bot now"
         defaultValue={-100}
         hideAfter={2}
-      />
+      >
+        <LottiePlayer
+          path="/stickers/boomstick.json"
+          style={{ width: 30, height: 30 }}
+        />
+      </Alert>
 
       <main>
         {(requestTwitterUrl || perhapsTwitterCode) && (

@@ -1,4 +1,9 @@
-import { forwardRef, useCallback, useImperativeHandle } from 'react'
+import {
+  ReactElement,
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+} from 'react'
 import { useSpring, animated } from 'react-spring'
 
 export interface AlertHandle {
@@ -7,8 +12,13 @@ export interface AlertHandle {
 
 export const Alert = forwardRef<
   AlertHandle,
-  { title: string; defaultValue: number; hideAfter?: number }
->(({ title, defaultValue, hideAfter }, ref) => {
+  {
+    title: string
+    defaultValue: number
+    hideAfter?: number
+    children?: ReactElement | ReactElement[]
+  }
+>(({ title, defaultValue, hideAfter, children }, ref) => {
   const [springProps, setSpring] = useSpring(() => ({
     top: defaultValue,
     config: { tension: 170, friction: 26 },
@@ -40,7 +50,8 @@ export const Alert = forwardRef<
       }}
       className="p-4 mb-4 text-sm rounded-lg bg-black-1 flex justify-center items-center"
     >
-      <span className="ml-1">{title}</span>
+      {children}
+      <span className={`${children ? 'ml-1' : 'ml-0'}`}>{title}</span>
     </animated.div>
   )
 })
