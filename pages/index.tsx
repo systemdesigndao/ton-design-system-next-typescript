@@ -87,8 +87,12 @@ export default function Home() {
             onClick={
               requestTwitterUrl
                 ? async () => {
-                    if (typeof requestTwitterUrl === 'string')
-                      openInNewTab(requestTwitterUrl)
+                    if (typeof requestTwitterUrl === 'string') {
+                      const currentUrl = new URL(window.location.href)
+                      const requestTwitterUrl =
+                        currentUrl.searchParams.get('requestTwitterUrl')
+                      if (requestTwitterUrl) openInNewTab(requestTwitterUrl)
+                    }
                   }
                 : () => {
                     perhapsConnectTwitter()
