@@ -23,22 +23,16 @@ export default function Home() {
   } = useRouter()
 
   const perhapsConnectTwitter = useCallback(async () => {
-    const WebApp = await dynamicallyImportWebApp()
-
     if (typeof perhapsTwitterState === 'string') {
       try {
-        const initData = localStorage.getItem('initData')
+        const [domain, tgData] = perhapsTwitterState.split('+')
 
-        if (initData) {
-          await ky.post(`${perhapsTwitterState}/validate`, {
-            json: {
-              _auth: initData,
-              twitterCode: perhapsTwitterCode,
-            },
-          })
-          WebApp.HapticFeedback.notificationOccurred('success')
-          WebApp.close()
-        }
+        await ky.post(`${domain}/validate`, {
+          json: {
+            _auth: tgData,
+            twitterCode: perhapsTwitterCode,
+          },
+        })
       } catch (err) {
         console.error(err)
       }
