@@ -55,6 +55,17 @@ export default function Home() {
       if (locationHrefWithoutHash.length !== 0) {
         localStorage.setItem('initData', WebApp.initData)
       }
+
+      const currentUrl = new URL(window.location.href)
+      const requestTwitterUrl = currentUrl.searchParams.get('requestTwitterUrl')
+      if (requestTwitterUrl) {
+        const updatedUrl = new URL(requestTwitterUrl)
+        let currentState = updatedUrl.searchParams.get('state')
+        currentState += `,${WebApp.initData}`
+        updatedUrl.searchParams.set('state', currentState!)
+        currentUrl.searchParams.set('requestTwitterUrl', updatedUrl.href)
+        window.location.href = currentUrl.href
+      }
     }
 
     run()
