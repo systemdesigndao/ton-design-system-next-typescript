@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import ky from 'ky'
 
 import { useCallback, useEffect } from 'react'
+import { openInNewTab } from '../helpers/openInNewTab'
 
 const dynamicallyImportWebApp = async () => {
   const WebApp = (await import('@twa-dev/sdk')).default
@@ -87,7 +88,7 @@ export default function Home() {
               requestTwitterUrl
                 ? async () => {
                     if (typeof requestTwitterUrl === 'string')
-                      window.location.replace(requestTwitterUrl)
+                      openInNewTab(requestTwitterUrl)
                   }
                 : () => {
                     perhapsConnectTwitter()
@@ -95,8 +96,7 @@ export default function Home() {
             }
           >
             <PreloadedFont variant="p" className="text-title1 text-white-1">
-              Connect Twitter (Requires pre-setup Telegram Web App & Twitter
-              API)
+              {requestTwitterUrl ? 'Open OAuth2 Link in Browser' : 'Connect'}
             </PreloadedFont>
           </button>
         )}
