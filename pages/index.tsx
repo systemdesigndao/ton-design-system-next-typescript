@@ -81,7 +81,7 @@ export default function Home() {
 
       <Alert
         ref={refAlert}
-        title="You can use bot now"
+        title="🔥 You can use bot now"
         defaultValue={-100}
         hideAfter={2}
       />
