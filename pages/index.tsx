@@ -102,7 +102,12 @@ export default function Home() {
                         currentUrl.searchParams.get('requestTwitterUrl')
                       if (requestTwitterUrl) {
                         const updatedLink = await buildUpdatedLink()
-                        if (updatedLink) openInNewTab(updatedLink.href)
+                        if (updatedLink)
+                          openInNewTab(
+                            updatedLink.href,
+                            '_blank',
+                            'noopener,noreferrer'
+                          )
                       }
                     }
                   }
