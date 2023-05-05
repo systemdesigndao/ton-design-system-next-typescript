@@ -104,7 +104,7 @@ export default function Home() {
                         const updatedLink = await buildUpdatedLink()
                         if (updatedLink)
                           openInNewTab(
-                            updatedLink.href + '/',
+                            updatedLink.href,
                             '_blank',
                             'noopener,noreferrer'
                           )
