@@ -45,28 +45,25 @@ export default function Home() {
     }
   }, [perhapsTwitterState, perhapsTwitterCode])
 
+  const buildUpdatedLink = useCallback(async () => {
+    const WebApp = await dynamicallyImportWebApp()
+    const currentUrl = new URL(window.location.href)
+    const requestTwitterUrl = currentUrl.searchParams.get('requestTwitterUrl')
+    if (requestTwitterUrl) {
+      const updatedUrl = new URL(requestTwitterUrl)
+      let currentState = updatedUrl.searchParams.get('state')
+      currentState += `+${WebApp.initData}`
+      updatedUrl.searchParams.set('state', currentState!)
+
+      return updatedUrl
+    }
+  }, [])
+
   useEffect(() => {
     const run = async () => {
       const WebApp = await dynamicallyImportWebApp()
 
       WebApp.ready()
-
-      const locationHrefWithoutHash = location.hash.substring(1)
-
-      if (locationHrefWithoutHash.length !== 0) {
-        localStorage.setItem('initData', WebApp.initData)
-      }
-
-      const currentUrl = new URL(window.location.href)
-      const requestTwitterUrl = currentUrl.searchParams.get('requestTwitterUrl')
-      if (requestTwitterUrl) {
-        const updatedUrl = new URL(requestTwitterUrl)
-        let currentState = updatedUrl.searchParams.get('state')
-        currentState += `+${WebApp.initData}`
-        updatedUrl.searchParams.set('state', currentState!)
-        currentUrl.searchParams.set('requestTwitterUrl', updatedUrl.href)
-        window.history.pushState({}, '', currentUrl.href)
-      }
     }
 
     run()
@@ -103,7 +100,10 @@ export default function Home() {
                       const currentUrl = new URL(window.location.href)
                       const requestTwitterUrl =
                         currentUrl.searchParams.get('requestTwitterUrl')
-                      if (requestTwitterUrl) openInNewTab(requestTwitterUrl)
+                      if (requestTwitterUrl) {
+                        const updatedLink = await buildUpdatedLink()
+                        if (updatedLink) openInNewTab(updatedLink.href)
+                      }
                     }
                   }
                 : () => {
