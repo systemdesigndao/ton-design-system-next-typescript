@@ -1,6 +1,6 @@
 import { motion, useSpring } from 'framer-motion'
 import { forwardRef, useCallback, useImperativeHandle } from 'react'
-import { LottiePlayer } from './LottiePlayer'
+import { TgsPlayer } from './TgsPlayer'
 
 export interface AlertHandle {
   showAndHide(): void
@@ -37,8 +37,8 @@ export const Alert = forwardRef<
       style={{ top, right: 0 }}
       className="p-4 mb-4 text-sm rounded-lg bg-black-1 absolute flex justify-center items-center"
     >
-      <LottiePlayer
-        path="/stickers/boomstick.json"
+      <TgsPlayer
+        path="/stickers/boomstick.tgs"
         style={{ width: 30, height: 30 }}
       />
       <span className="ml-1">{title}</span>
