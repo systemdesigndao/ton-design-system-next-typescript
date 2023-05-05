@@ -1,3 +1,4 @@
+'use client'
 import { motion, useSpring } from 'framer-motion'
 import { forwardRef, useCallback, useImperativeHandle } from 'react'
 
