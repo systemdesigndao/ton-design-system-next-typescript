@@ -14,7 +14,7 @@
   dependencies:
     regenerator-runtime "^0.13.11"
 
-"@designervoid/ton-design-system@^1.0.10":
+"@designervoid/ton-design-system@^1.0.19":
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/@designervoid/ton-design-system/-/ton-design-system-1.0.19.tgz#d847b12809b1df3739e9453869a752d51c85206c"
   integrity sha512-8fGCdqi1I8r3Z2KYTqcPemraBIDWdVYIobjb9X7KRJRUM9yfWShNv1dBZntVRSuriHxjie7iHY73RBk80t/N1A==

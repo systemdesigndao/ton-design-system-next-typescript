@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@designervoid/ton-design-system": "^1.0.10",
+    "@designervoid/ton-design-system": "^1.0.19",
     "@lottiefiles/lottie-player": "^1.7.1",
     "@next/font": "^13.1.1",
     "@twa-dev/sdk": "^6.4.2",
