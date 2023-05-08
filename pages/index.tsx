@@ -29,7 +29,8 @@ export default function Home() {
   const perhapsConnectTwitter = useCallback(async () => {
     if (typeof perhapsTwitterState === 'string') {
       try {
-        const [domain, tgData] = perhapsTwitterState.split('+')
+        const [domain, tgData] = perhapsTwitterState.split('~')
+        console.log(domain)
 
         await ky.post(`${domain}/validate`, {
           json: {
