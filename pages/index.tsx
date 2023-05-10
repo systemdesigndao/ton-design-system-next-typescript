@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { PreloadedFont } from '../components/PreloadedFont'
 import { useRouter } from 'next/router'
 import ky from 'ky'
-
 import { useCallback, useEffect, useRef } from 'react'
 import { openInNewTab } from '../helpers/openInNewTab'
 import { Alert, AlertHandle } from '../components/Alert'
@@ -199,6 +198,26 @@ export default function Home() {
               style={{ width: 30, height: 30 }}
             />
           </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+            <>
+              Lottie (img +{' '}
+              <a href="https://pypi.org/project/lottie/" className="underline">
+                animated webp
+              </a>
+              )
+            </>
+          </PreloadedFont>
+          <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit mt-1">
+            <Image
+              onError={() => {
+                throw Error("Animated WebP doesn't support in your browser")
+              }}
+              src="/stickers/webp/money.webp"
+              width={30}
+              height={30}
+              alt="money webp animated sticker"
+            />
+          </div>
         </div>
         <PreloadedFont
           variant="h1"
@@ -263,7 +282,7 @@ export default function Home() {
               height={56}
             />
           </div>
-          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+          <PreloadedFont variant="h1" className="text-title1 text-main-light-4">
             Lottie (lottie-player + json)
           </PreloadedFont>
           <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit">
@@ -276,6 +295,26 @@ export default function Home() {
             <LottiePlayer
               path="/stickers/boomstick.json"
               style={{ width: 30, height: 30 }}
+            />
+          </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-light-4">
+            <>
+              Lottie (img +{' '}
+              <a href="https://pypi.org/project/lottie/" className="underline">
+                animated webp
+              </a>
+              )
+            </>
+          </PreloadedFont>
+          <div className="bg-gray-light-6/10 rounded-[1.7rem] p-4 flex justify-center w-fit mt-1">
+            <Image
+              onError={() => {
+                throw Error("Animated WebP doesn't support in your browser")
+              }}
+              src="/stickers/webp/money.webp"
+              width={30}
+              height={30}
+              alt="money webp animated sticker"
             />
           </div>
         </div>
