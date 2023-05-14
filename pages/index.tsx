@@ -218,6 +218,20 @@ export default function Home() {
               alt="money webp animated sticker"
             />
           </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+            Buttons
+          </PreloadedFont>
+          <button
+            type="button"
+            className="bg-gray-dark-4 hover:bg-gray-dark-3 focus:outline-none ring-1 ring-white-4 rounded-full px-5 py-2.5 mr-2 mb-2 max-w-fit"
+          >
+            <PreloadedFont
+              variant="span"
+              className="text-regular1 text-white-1"
+            >
+              Default (rounded-full)
+            </PreloadedFont>
+          </button>
         </div>
         <PreloadedFont
           variant="h1"
@@ -317,6 +331,20 @@ export default function Home() {
               alt="money webp animated sticker"
             />
           </div>
+          <PreloadedFont variant="h1" className="text-title1 text-main-light-4">
+            Buttons
+          </PreloadedFont>
+          <button
+            type="button"
+            className="bg-white-1 hover:bg-gray-light-3 focus:outline-none ring-1 ring-white-2 rounded-full px-5 py-2.5 mr-2 mb-2 max-w-fit"
+          >
+            <PreloadedFont
+              variant="span"
+              className="text-regular1 text-black-4"
+            >
+              Default (rounded-full)
+            </PreloadedFont>
+          </button>
         </div>
       </main>
     </div>
