@@ -1,4 +1,4 @@
-import localFont from '@next/font/local'
+import localFont from 'next/font/local'
 import { createElement, ReactElement, ReactHTML } from 'react'
 
 const mulishFont = localFont({ src: '../public/fonts/Mulish-Regular.ttf' })
