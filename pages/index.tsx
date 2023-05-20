@@ -126,7 +126,7 @@ export default function Home() {
         >
           Dark theme
         </PreloadedFont>
-        <div className="flex flex-col h-screen bg-gray-dark-5 p-2">
+        <div className="flex flex-col h-fit bg-gray-dark-5 p-2">
           <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
             Typography
           </PreloadedFont>
@@ -239,7 +239,7 @@ export default function Home() {
         >
           Light theme
         </PreloadedFont>
-        <div className="flex flex-col h-screen bg-white-1 p-2">
+        <div className="flex flex-col h-fit bg-white-1 p-2">
           <PreloadedFont variant="h1" className="text-title1 text-main-light-4">
             Typography
           </PreloadedFont>
