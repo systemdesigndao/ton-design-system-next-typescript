@@ -126,7 +126,7 @@ export default function Home() {
         >
           Dark theme
         </PreloadedFont>
-        <div className="flex flex-col h-fit bg-gray-dark-5 p-2">
+        <div className="flex flex-col h-fit bg-gray-dark-5 p-2 space-y-3">
           <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
             Typography
           </PreloadedFont>
@@ -172,7 +172,7 @@ export default function Home() {
           <PreloadedFont variant="p" className="text-caption3 text-white-1">
             Caption3/0.78rem/Regular - 0.78rem/0.92rem
           </PreloadedFont>
-          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4 space-y-2">
             Cards
           </PreloadedFont>
           <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
@@ -183,7 +183,7 @@ export default function Home() {
               height={56}
             />
           </div>
-          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4 space-y-2">
             Lottie (lottie-player + json)
           </PreloadedFont>
           <div className="bg-gray-dark-6 rounded-[1.7rem] p-4 flex justify-center w-fit">
@@ -198,7 +198,7 @@ export default function Home() {
               style={{ width: 30, height: 30 }}
             />
           </div>
-          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4 space-y-2">
             <>
               Lottie (img +{' '}
               <a href="https://pypi.org/project/lottie/" className="underline">
@@ -218,7 +218,7 @@ export default function Home() {
               alt="money webp animated sticker"
             />
           </div>
-          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4">
+          <PreloadedFont variant="h1" className="text-title1 text-main-dark-4 space-y-2">
             Buttons
           </PreloadedFont>
           <button
@@ -235,11 +235,11 @@ export default function Home() {
         </div>
         <PreloadedFont
           variant="h1"
-          className="text-title1 text-white-1 p-2 text-center bg-main-light-5"
+          className="text-title1 text-white-1 p-2 text-center bg-main-light-5 space-y-1"
         >
           Light theme
         </PreloadedFont>
-        <div className="flex flex-col h-fit bg-white-1 p-2">
+        <div className="flex flex-col h-fit bg-white-1 p-2 space-y-3">
           <PreloadedFont variant="h1" className="text-title1 text-main-light-4">
             Typography
           </PreloadedFont>

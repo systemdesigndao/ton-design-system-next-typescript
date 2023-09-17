@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@designervoid/ton-design-system": "^1.0.19",
+    "@designervoid/ton-design-system": "^1.1.0",
     "@lottiefiles/lottie-player": "^1.7.1",
     "@twa-dev/sdk": "^6.4.2",
     "@types/node": "18.11.9",
@@ -32,6 +32,6 @@
     "lint-staged": "^13.1.2",
     "postcss": "^8.4.19",
     "prettier": "^2.8.4",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.3.3"
   }
 }
